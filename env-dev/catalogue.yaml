@@ -1,0 +1,6 @@
+appName: catalogue
+port: 8080
+serviceType: ClusterIp
+configMap:
+  MONGO: true
+  MONGO_URL: "mongodb://mongodb-dev.azdevopsb1.online:27017/catalogue"
