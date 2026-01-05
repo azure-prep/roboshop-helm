@@ -1,6 +1,6 @@
 appName: shipping
 port: 8080
-serviceType: ClusterIp
+serviceType: ClusterIP
 configMap:
   CART_ENDPOINT: cart:8080
   DB_HOST: mysql-dev.azdevopsb1.online

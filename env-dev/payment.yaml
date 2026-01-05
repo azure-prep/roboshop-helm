@@ -1,6 +1,6 @@
 appName: payment
 port: 8080
-serviceType: ClusterIp
+serviceType: ClusterIP
 configMap:
   CART_HOST: cart
   CART_PORT: "8080"
