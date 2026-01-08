@@ -1,0 +1,13 @@
+{{ if  .Values.db_job.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ .Values.appName }}-job
+spec:
+  template:
+    spec:
+      containers:
+        - name: {{ .Values.appName }}-job
+          image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
+      restartPolicy: Never
+{{ end }}

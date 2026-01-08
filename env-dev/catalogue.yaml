@@ -1,6 +1,13 @@
 appName: catalogue
 port: 8080
 serviceType: ClusterIP
+db_job:
+  enabled: true
+
 configMap:
   MONGO: true
   MONGO_URL: "mongodb://mongodb-dev.azdevopsb1.online:27017/catalogue"
+  DB_TYPE: mongo
+  APP_GIT_URL: https://github.com/roboshop-devops-project-v3/catalogue
+  DB_HOST: mongodb-dev.azdevopsb1.online
+  SCHEMA_FILE: db/master-data.js
