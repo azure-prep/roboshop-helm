@@ -7,7 +7,12 @@ spec:
   template:
     spec:
       containers:
+        -
         - name: {{ .Values.appName }}-job
           image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
-      restartPolicy: Never
+          envFrom:
+            - configMapRef:
+                name: {{ .Values.appName }}
+          restartPolicy: Never
+
 {{ end }}
