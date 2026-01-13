@@ -7,12 +7,27 @@ spec:
   backoffLimit: 1
   template:
     spec:
-      containers:
-        - name: {{ .Values.appName }}-job
+      initContainers:
+        {{- range .Values.db_job.initJobs }}
+        - name: {{ $.Values.appName }}-job
           image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
+          env:
+            - name: SCHEMA_FILE
+              value: db/{{ . }}.{{ $.Values.db_job.ext }}
           envFrom:
             - configMapRef:
-                name: {{ .Values.appName }}
-
+                name: {{ $.Values.appName }}
+        {{ end }}
+      containers:
+        {{- range .Values.db_job.jobs }}
+        - name: {{ $.Values.appName }}-job
+          image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
+          env:
+            - name: SCHEMA_FILE
+              value: db/{{ . }}.{{ $.Values.db_job.ext }}
+          envFrom:
+            - configMapRef:
+                name: {{ $.Values.appName }}
+        {{ end }}
       restartPolicy: Never
 {{ end }}

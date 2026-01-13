@@ -3,6 +3,9 @@ port: 8080
 serviceType: ClusterIP
 db_job:
   enabled: true
+  jobs:
+    - master-data
+  ext: js
 
 configMap:
   MONGO: true
