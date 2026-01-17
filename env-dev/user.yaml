@@ -5,3 +5,11 @@ configMap:
   MONGO: true
   MONGO_URL: "mongodb://mongodb-dev.azdevopsb1.online:27017/users"
   REDIS_URL: "redis://redis-dev.azdevopsb1.online:6379"
+
+resources:
+  requests:
+    memory: "64Mi"
+    cpu: "250m"
+  limits:
+    memory: "128Mi"
+    cpu: "500m"

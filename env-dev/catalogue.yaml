@@ -14,3 +14,11 @@ configMap:
   APP_GIT_URL: https://github.com/roboshop-devops-project-v3/catalogue
   DB_HOST: mongodb-dev.azdevopsb1.online
   SCHEMA_FILE: db/master-data.js
+
+resources:
+  requests:
+    memory: "64Mi"
+    cpu: "250m"
+  limits:
+    memory: "128Mi"
+    cpu: "500m"

@@ -22,3 +22,10 @@ spec:
           envFrom:
            - secretRef:
               name: {{ .Values.appName }}
+          resources:
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.cpu }}
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.cpu }}

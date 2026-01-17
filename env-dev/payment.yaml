@@ -9,3 +9,11 @@ configMap:
   AMQP_HOST: rabbitmq-dev.azdevopsb1.online
   AMQP_USER: roboshop
   AMQP_PASS: roboshop123
+
+resources:
+  requests:
+    memory: "64Mi"
+    cpu: "250m"
+  limits:
+    memory: "128Mi"
+    cpu: "500m"
