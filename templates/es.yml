@@ -6,9 +6,9 @@ spec:
   refreshInterval: "15s"
   secretStoreRef:
     name: vault-backend
-    kind: SecretStore
+    kind: ClusterSecretStore
   target:
-    name: {{ .Values.appName }}-job
+    name: {{ .Values.appName }}
   dataFrom:
     - extract:
-        key: {{ .Values.appName }}-job
+        key: {{ .Values.appName }}
