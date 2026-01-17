@@ -1,5 +1,6 @@
 upgrade:
 	git pull;
+
 	helm upgrade --install frontend . --values env-dev/frontend.yaml -n app
 	helm upgrade --install catalogue . --values env-dev/catalogue.yaml -n app
 	helm upgrade --install cart . --values env-dev/cart.yaml -n app
