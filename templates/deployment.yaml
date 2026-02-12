@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: {{ .Values.appName }}
-          image:  public.ecr.aws/w8x4g9h7/roboshop-v3/frontend
+          image: azuredevopsb84.azurecr.io/roboshop-{{ .Values.appName }}:{{ .Values.appTag }}
           ports:
             - containerPort: {{ .Values.port }}
           envFrom:
@@ -25,7 +25,7 @@ spec:
           resources:
             requests:
               cpu: {{ .Values.resources.requests.cpu }}
-              memory: {{ .Values.resources.requests.memory }}
+              memory: {{ .Values.resources.requests.cpu }}
             limits:
               cpu: {{ .Values.resources.limits.cpu }}
-              memory: {{ .Values.resources.limits.memory }}
+              memory: {{ .Values.resources.limits.cpu }}
