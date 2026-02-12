@@ -16,20 +16,16 @@ spec:
     spec:
       containers:
         - name: {{ .Values.appName }}
-          image: {{- if eq .Values.appName "frontend" -}}
-public.ecr.aws/w8x4g9h7/roboshop-v3/{{ .Values.appName }}
-            {{- else -}}
-azuredevopsb84.azurecr.io/roboshop-{{ .Values.appName }}:{{ .Values.appTag }}
-            {{- end }}
-  ports:
-    - containerPort: {{ .Values.port }}
-  envFrom:
-    - secretRef:
-        name: {{ .Values.appName }}
-  resources:
-    requests:
-      cpu: {{ .Values.resources.requests.cpu }}
-      memory: {{ .Values.resources.requests.memory }}
-    limits:
-      cpu: {{ .Values.resources.limits.cpu }}
-      memory: {{ .Values.resources.limits.memory }}
+          image:  public.ecr.aws/w8x4g9h7/roboshop-v3/frontend
+          ports:
+            - containerPort: {{ .Values.port }}
+          envFrom:
+           - secretRef:
+              name: {{ .Values.appName }}
+          resources:
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
