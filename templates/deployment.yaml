@@ -16,7 +16,11 @@ spec:
     spec:
       containers:
         - name: {{ .Values.appName }}
+          {{- if eq .Values.appName "frontend" }}
+          image:  public.ecr.aws/w8x4g9h7/roboshop-v3/frontend
+          {{- else }}
           image: azuredevopsb84.azurecr.io/roboshop-{{ .Values.appName }}:{{ .Values.appTag }}
+          {{- end }}
           ports:
             - containerPort: {{ .Values.port }}
           envFrom:
