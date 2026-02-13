@@ -10,3 +10,6 @@ spec:
       port: {{ .Values.port }}
       targetPort: {{ .Values.port }}
   type: {{ .Values.serviceType }}
+  {{- if eq .Values.appName "frontend" }}
+  externalTrafficPolicy: Local
+  {{- end }}
