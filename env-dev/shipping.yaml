@@ -9,6 +9,7 @@ configMap:
   DB_TYPE: mysql
   APP_GIT_URL: https://github.com/roboshop-devops-project-v3/shipping
 
+minReplicas: 3
 db_job:
   ext: sql
   enabled: true
@@ -20,8 +21,15 @@ db_job:
 
 resources:
   requests:
-    memory: "500Mi"
-    cpu: "500m"
+    memory: "3100Mi"
+    cpu: "1000m"
   limits:
-    memory: "500Mi"
-    cpu: "500m"
+    memory: "4000Mi"
+    cpu: "1200m"
+
+
+probes:
+  liveness:
+    initialDelaySeconds: 60
+  readiness:
+    initialDelaySeconds: 60

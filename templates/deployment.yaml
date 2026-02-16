@@ -33,3 +33,17 @@ spec:
             limits:
               cpu: {{ .Values.resources.limits.cpu }}
               memory: {{ .Values.resources.limits.memory }}
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.port }}
+            failureThreshold: 1
+            periodSeconds: 10
+            initialDelaySeconds: {{ .Values.probes.liveness.initialDelaySeconds }}
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.port }}
+            failureThreshold: 1
+            periodSeconds: 10
+            initialDelaySeconds: {{ .Values.probes.readiness.initialDelaySeconds }}
