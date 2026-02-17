@@ -1,8 +1,8 @@
 db_job:
   enabled: false
 
-minReplicas: 1
-maxReplicas: 1
+minReplicas: 3
+maxReplicas: 4
 
 probes:
   liveness:
