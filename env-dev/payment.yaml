@@ -17,3 +17,5 @@ resources:
   limits:
     memory: "4000Mi"
     cpu: "1200m"
+
+log_type: 'raw'

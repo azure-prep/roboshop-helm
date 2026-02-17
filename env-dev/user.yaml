@@ -13,3 +13,5 @@ resources:
   limits:
     memory: "256Mi"
     cpu: "200m"
+
+log_type: 'json'
