@@ -3,8 +3,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Values.appName }}
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - {{ .Values.appName }}-dev.azdevopsb1.online
+      secretName: {{ .Values.appName }}-tls
   rules:
     - host: {{ .Values.ingress.host }}
       http:
