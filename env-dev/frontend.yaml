@@ -25,4 +25,4 @@ log_type: 'raw'
 
 ingress:
   enabled: true
-  host: frontend-dev.azdevopsb1.online
+  host: "frontend-dev.azdevopsb1.online"
