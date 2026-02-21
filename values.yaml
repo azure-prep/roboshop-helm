@@ -9,3 +9,6 @@ probes:
     initialDelaySeconds: 10
   readiness:
     initialDelaySeconds: 10
+
+ingress:
+  enabled: false
